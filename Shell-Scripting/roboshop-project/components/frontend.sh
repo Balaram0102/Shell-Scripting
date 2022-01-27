@@ -26,8 +26,15 @@ rm -f /etc/yum.repos.d/endpoint.repo
 echo "installing nginx"
 yum install nginx -y >> $LOG_FILE
 echo " Downloading frontend content"
-curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" &>> $LOG_FILEg
+curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" &>> $LOG_FILE
 echo "cleaning old content"
 rm -rf /usr/share/nginx/html/* $LOG_FILE
 echo "Extracting Frontend Content"
+cd /tmp
 unzip /tmp/frontend.zip $LOG_FILE
+
+cp -r frontend-main/* /usr/share/nginx/html/ &>>$LOG_FILE
+cp rontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf &>>$LOG_FILE
+echo "Starting Nginx"
+systemctl enable nginx &>>$LOG_FILE
+systemctl start nginx &>>$LOG_FILE
