@@ -20,7 +20,7 @@
 #Finally restart the service once to effect the changes.
 #
 ## systemctl restart nginx
- rm -f /etc/yum.repos.d/endpoint.repo
+rm -f /etc/yum.repos.d/endpoint.repo
 echo "installing nginx"
 yum install nginx -y >> /tmp/roboshop.log
 echo " Downloading frontend content"
