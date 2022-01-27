@@ -31,7 +31,7 @@ echo "cleaning old content"
 rm -rf /usr/share/nginx/html/* $LOG_FILE
 echo "Extracting Frontend Content"
 cd /tmp
-unzip /tmp/frontend.zip $LOG_FILE
+unzip /tmp/frontend.zip &>>$LOG_FILE
 
 cp -r frontend-main/* /usr/share/nginx/html/ &>>$LOG_FILE
 cp rontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf &>>$LOG_FILE
