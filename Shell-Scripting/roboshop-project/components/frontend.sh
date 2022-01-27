@@ -20,8 +20,14 @@
 #Finally restart the service once to effect the changes.
 #
 ## systemctl restart nginx
+LOG_FILE=/tmp/roboshop.log
+rm -f $LOG_FILE
 rm -f /etc/yum.repos.d/endpoint.repo
 echo "installing nginx"
-yum install nginx -y >> /tmp/roboshop.log
+yum install nginx -y >> $LOG_FILE
 echo " Downloading frontend content"
-curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" >> /tmp/roboshop.log
+curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" &>> $LOG_FILEg
+echo "cleaning old content"
+rm -rf /usr/share/nginx/html/* $LOG_FILE
+ecno "Extracting Frontend Content"
+unzip /tmp/frontend.zip $LOG_FILE
