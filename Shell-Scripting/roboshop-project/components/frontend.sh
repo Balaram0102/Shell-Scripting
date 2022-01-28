@@ -20,8 +20,7 @@
 #Finally restart the service once to effect the changes.
 #
 ## systemctl restart nginx
-rm -f $LOG_FILE
-LOG_FILE=/tmp/roboshop.log
+source components/common.sh
 rm -f /etc/yum.repos.d/endpoint.repo
 echo "installing nginx"
 yum install nginx -y >> $LOG_FILE
