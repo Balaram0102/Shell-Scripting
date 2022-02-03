@@ -1,0 +1,16 @@
+- name: Variable on play level
+  hosts: all
+  vars:
+    URL: play.example.com
+  tasks:
+    - name: Print URL
+      ansible.builtin.debug:
+        msg: URL = {{URL}}
+- name: Variable from file in play level
+  hosts: all
+  vars_files:
+    - sample-vars.yml
+    tasks:
+      - name: Print the URL
+        ansible.builtin.debug:
+          msg: URL = {{URL}}
