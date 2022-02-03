@@ -58,3 +58,6 @@
     - name: print hostname
       ansible.builtin.debug:
         msg: hostname = {{ansible_hostname}}
+    - name: Processer infomatopn
+      ansible.builtin.debug:
+        msg: "{{ansible_processor"}}
