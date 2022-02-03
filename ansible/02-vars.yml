@@ -10,7 +10,7 @@
   hosts: all
   vars_files:
     - sample-vars.yml
-    tasks:
-      - name: Print the URL
-        ansible.builtin.debug:
-          msg: URL = {{URL}}
+  tasks:
+    - name: Print the URL
+       ansible.builtin.debug:
+         msg: URL = {{URL}}
