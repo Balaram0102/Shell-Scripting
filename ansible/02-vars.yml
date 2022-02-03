@@ -38,7 +38,6 @@
       ansible.builtin.debug:
         msg: URL == {{URL}}
 
-
 # Variable Precedence
 - name: Variable Precedence
   hosts: all
@@ -52,3 +51,10 @@
         msg: URL == {{URL}}
       vars:
         URL: task.example.com
+# Print Host Name
+- name: print host name
+  hosts: all
+  tasks:
+    - name: print hostname
+      ansible,builtin.debug:
+        msg: hostname = {{ansible_hostname}}
