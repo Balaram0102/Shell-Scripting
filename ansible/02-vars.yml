@@ -30,3 +30,25 @@
         msg: URL == {{URL}}
       vars:
         URL: task2.example.com
+# Scope of task variable is only to that task, the other task cannot access the other tasks variables
+- name: Varibles from inventosy
+  hosts: all
+  tasks:
+    - name: print URL
+      ansible.builtin.debug:
+        msg: URL == {{URL}}
+
+
+# Variable Precedence
+- name: Variable Precedence
+  hosts: all
+  vars:
+    URL: play.example.com
+  vars_files:
+    - sample-vars.yml
+  tasks:
+    - name: print URL
+      ansible.builtin.debug:
+        msg: URL == {{URL}}
+      vars:
+        URL: task.example.com
