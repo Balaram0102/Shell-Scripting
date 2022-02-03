@@ -1,0 +1,7 @@
+- name: Setup Frontend component
+  hosts: all
+    - frontrnd
+
+- name: Setup MongoDB Component
+  hosts: all
+    - mongodb
