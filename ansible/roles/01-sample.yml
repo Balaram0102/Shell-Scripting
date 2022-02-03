@@ -1,4 +1,4 @@
-- name:Demo on Sample playbook
+- name: Demo on Sample playbook
   hosts: all
   tasks:
    - name: Print Hello
